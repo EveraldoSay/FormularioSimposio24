@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registros</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">carreras</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/verRegistro">registros</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h1>Sucursales</h1>
+        <a href="/verCarrera/create" class="btn btn-primary mb-2">Agregar Registro</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Carrera</th>
+                    <th>Correlativo</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>FechaRegistro</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(sucursal => { %>
+                    <tr>
+                        <td><%= sucursal.Idregistro %></td>
+                        <td><%= sucursal.Idcarrera %></td>
+                        <td><%= sucursal.Correlativo %></td>
+                        <td><%= sucursal.Nombre %></td>
+                        <td><%= sucursal.Apellido %></td>
+                        <td><%= sucursal.FechaRegistro %></td>
+                        <td>
+                            <a href="/Registro/edit/<%= registro.Idregistro %>" class="btn btn-warning">Editar</a>
+                            <a href="/registro/delete/<%= registro.Idregistro %>" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar este registro?');">Eliminar</a>  
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
